@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+	<ui:composition template="templates/prof/common-layout.xhtml">
+		<ui:define name="content">
+			<!-- begin MAIN PAGE CONTENT -->
+			<div class="page-wrapper">
+
+				<div>
+
+
+
+					<div class="page-content">
+
+						<!-- begin PAGE TITLE ROW -->
+						<div>
+							<div class="col-lg-12">
+								<div class="page-title">
+									<h4>
+										Smart Contracts Platform <small>hrw</small>
+									</h4>
+									<ol class="breadcrumb">
+										<li><i class="fa fa-home"></i> <a href="#"> Home </a></li>
+										<li class="active">Perform an action</li>
+									</ol>
+								</div>
+							</div>
+							<!-- /.col-lg-12 -->
+						</div>
+						<!-- /.row -->
+						<!-- end PAGE TITLE ROW -->
+
+						<div>
+							<div class="col-lg-12">
+
+								<div class="portlet portlet-green">
+									<div class="portlet-body">
+										<ul id="userTab" class="nav nav-tabs">
+											<li class="active"><a href="#overview" data-toggle="tab">Overview</a>
+											</li>
+											<li><a href="#profile-settings" data-toggle="tab">Create
+													a new Contract</a></li>
+											<li><a href="#upload-contract" data-toggle="tab">Upload
+													a Contract</a></li>
+										</ul>
+										<div id="userTabContent" class="tab-content">
+											<div class="tab-pane fade in active" id="overview">
+
+												<div class="row">
+													<div class="col-lg-2 col-md-3">
+
+														<img class="img-responsive img-profile"
+															src="img/profile-full.jpg" alt="" />
+														<div class="list-group">
+															<a href="#" class="list-group-item active">Overview</a> <a
+																href="#" class="list-group-item">Read the white
+																paper</a> <a href="#" class="list-group-item">Contracts<span
+																class="badge orange">9</span></a> <a href="#"
+																class="list-group-item">Visite<span
+																class="badge blue">10</span></a>
+														</div>
+													</div>
+													<div class="col-lg-7 col-md-5">
+														<h3>What is a 'Smart Contract'?</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+														<br /> <br />
+														<hr />
+														<h3>About our Platform</h3>
+														<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+															elit. Nunc placerat diam quis nisl vestibulum dignissim.
+															In hac habitasse platea dictumst. Interdum et malesuada
+															fames ac ante ipsum primis in faucibus. Pellentesque
+															habitant morbi tristique senectus et netus et malesuada
+															fames ac turpis egestas. Etiam placerat nunc ut tellus
+															tristique, non posuere neque iaculis.</p>
+
+													</div>
+													<div class="col-lg-3 col-md-4">
+														<h3>Contact Details</h3>
+														<p>
+															<i class="fa fa-globe fa-muted fa-fw"></i> <a href="#">http://www.website.com</a>
+														</p>
+														<p>
+															<i class="fa fa-phone fa-muted fa-fw"></i>
+															017673987837389
+														</p>
+														<p>
+															<i class="fa fa-building-o fa-muted fa-fw"></i> Märkische
+															Str. 3. <br />44222, Dortmund
+														</p>
+														<p>
+															<i class="fa fa-envelope-o fa-muted fa-fw"></i> <a
+																href="#">max.mustermann@website.de</a>
+														</p>
+														<ul class="list-inline">
+															<li><a class="facebook-link" href="#"><i
+																	class="fa fa-facebook-square fa-2x"></i></a></li>
+															<li><a class="twitter-link" href="#"><i
+																	class="fa fa-twitter-square fa-2x"></i></a></li>
+															<li><a class="linkedin-link" href="#"><i
+																	class="fa fa-linkedin-square fa-2x"></i></a></li>
+															<li><a class="google-plus-link" href="#"><i
+																	class="fa fa-google-plus-square fa-2x"></i></a></li>
+														</ul>
+													</div>
+
+												</div>
+
+											</div>
+											<div class="tab-pane fade" id="profile-settings">
+
+												<div class="row">
+													<div class="col-sm-3">
+														<ul id="userSettings" class="nav nav-pills nav-stacked">
+															<br />
+															<li class="active"><a href="#basicInformation"
+																data-toggle="tab"> Contract type 1</a></li>
+															<li><a href="#profilePicture" data-toggle="tab">
+																	Contract type 2</a></li>
+															<li><a href="#changePassword" data-toggle="tab">
+																	Contract type 3</a></li>
+														</ul>
+													</div>
+													<br />
+													<div class="col-sm-9">
+														<div id="userSettingsContent" class="tab-content">
+															<div class="tab-pane fade in active"
+																id="basicInformation">
+																<form role="form">
+																	<h4 class="page-header">Contract creation:</h4>
+																	<div class="form-group">
+																		<label><i class="fa fa-info fa-fw"></i>
+																			Description</label>
+																		<textarea class="form-control" rows="6"></textarea>
+																	</div>
+
+																	<div class="form-group">
+																		<label>Attach an image</label> <input type="file" />
+																		<p class="help-block">
+																			<i class="fa fa-warning"></i> Image must be no larger
+																			than 500x500 pixels. Supported formats: JPG, GIF, PNG
+																		</p>
+
+																	</div>
+
+																	<div class="form-group">
+																		<label>your Wallet Address</label> <input type="text"
+																			class="form-control" value="" />
+																	</div>
+																	<div class="form-group">
+																		<label>CounterParty's wallet Address</label> <input
+																			type="text" class="form-control" value="" />
+																	</div>
+
+																	<div class="form-inline">
+
+																		<div class="form-group">
+																			<label>Amount</label> <input type="text"
+																				class="form-control" value="" />
+																		</div>
+
+																		<div class="form-group">
+
+
+
+																			<label><i class="fa fa-building-o fa-fw"></i>
+																				who pays?</label> <label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value=""></input>
+																				me
+																			</label> <label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value="" />counterparty
+																			</label> <label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value="">others</input>
+																			</label>
+
+
+
+																		</div>
+
+																	</div>
+																	<div class="form-group">
+																		<label>Fee</label> <input type="text"
+																			class="form-control" value="0.001" />
+																	</div>
+
+																	<div class="form-group">
+																		<label>you Deposit:</label> <input type="text"
+																			class="form-control" value="" />
+																	</div>
+
+																	<div class="form-group">
+																		<label>They Deposit:</label> <input type="text"
+																			class="form-control" value="" />
+																	</div>
+
+																	<div class="form-inline">
+
+																		<div class="form-group">
+																			<label><i class="fa fa-clock-o"></i> </label> <label>Time
+																				to Complete:</label> <input type="text" class="form-control"
+																				value="" />
+																		</div>
+
+																		<div class="form-group">
+
+
+
+
+																			<label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value=""></input>
+																				min.
+																			</label> <label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value="" />hrs.
+																			</label> <label class="radio-inline"> <input
+																				type="radio" name="optionsInlineRadios" value="">Days</input>
+																			</label>
+
+
+
+																		</div>
+																	</div>
+
+																</form>
+																<br /> <br />
+																<div>
+																	<button type="submit" class="btn btn-default">Save
+																		the contract</button>
+																	<button class="btn btn-green">Cancel</button>
+																</div>
+															</div>
+															<div class="tab-pane fade" id="profilePicture">
+																<h3>Still to come...</h3>
+
+															</div>
+															<div class="tab-pane fade in" id="changePassword">
+																<h3>Still to come:</h3>
+
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="tab-pane fade" id="upload-contract">
+												<div>
+													<div class="col-lg-12">
+														<br /> <br />
+														<hr />
+
+
+
+														<div class="portlet-body">
+															<h:form>
+																<ul id="userTab" class="nav nav-tabs">
+																	<li class="active"><a href="#" data-toggle="tab">Please
+																			enter the Java code to be Hashed</a></li>
+																</ul>
+
+																<p:inputTextarea rows="15" cols="100" counter="display"
+																	width="100" maxlength="10000"
+																	counterTemplate="{0} characters remaining."
+																	autoResize="false" />
+
+																<br />
+																<div>
+																	<p:button value="Generate Hash" />
+																	<p:button value="cancel" />
+																</div>
+
+																<h:outputText id="display" />
+															</h:form>
+															<br />
+															<hr />
+															<h:form>
+
+
+																<p:inputTextarea rows="15" cols="100" counter="display"
+																	width="100" maxlength="10000"
+																	counterTemplate="{0} characters remaining."
+																	autoResize="false" />
+
+																<br />
+																<div>
+																	<p:button value="Export" />
+																	<p:button value="cancel" />
+																</div>
+
+																<h:outputText id="display" />
+															</h:form>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /.portlet-body -->
+								</div>
+								<!-- /.portlet -->
+
+
+							</div>
+							<!-- /.col-lg-12 -->
+
+
+						</div>
+						<!-- /.row -->
+
+					</div>
+					<!-- /.page-content -->
+
+				</div>
+				<!-- /.page-content -->
+
+			</div>
+			<!-- /#page-wrapper -->
+			<!-- end MAIN PAGE CONTENT -->
+			<script
+				src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		</ui:define>
+	</ui:composition>
+
+	<!-- GLOBAL SCRIPTS -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="js/plugins/popupoverlay/jquery.popupoverlay.js"></script>
+	<script src="js/plugins/popupoverlay/defaults.js"></script>
+	<!-- Logout Notification Box -->
+
+	<!-- /#logout -->
+	<!-- Logout Notification jQuery -->
+	<script src="js/plugins/popupoverlay/logout.js"></script>
+	<!-- HISRC Retina Images -->
+	<script src="js/plugins/hisrc/hisrc.js"></script>
+
+	<!-- PAGE LEVEL PLUGIN SCRIPTS -->
+	<!-- HubSpot Messenger -->
+	<script src="js/plugins/messenger/messenger.min.js"></script>
+	<script src="js/plugins/messenger/messenger-theme-flat.js"></script>
+	<!-- Date Range Picker -->
+	<script src="js/plugins/daterangepicker/moment.js"></script>
+	<script src="js/plugins/daterangepicker/daterangepicker.js"></script>
+	<!-- Morris Charts -->
+	<script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+	<script src="js/plugins/morris/morris.js"></script>
+	<!-- Flot Charts -->
+	<script src="js/plugins/flot/jquery.flot.js"></script>
+	<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+	<!-- Sparkline Charts -->
+	<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<!-- Moment.js -->
+	<script src="js/plugins/moment/moment.min.js"></script>
+	<!-- jQuery Vector Map -->
+	<script src="js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script
+		src="js/plugins/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="js/demo/map-demo-data.js"></script>
+	<!-- Easy Pie Chart -->
+	<script src="js/plugins/easypiechart/jquery.easypiechart.min.js"></script>
+	<!-- DataTables -->
+	<script src="js/plugins/datatables/jquery.dataTables.js"></script>
+	<script src="js/plugins/datatables/datatables-bs3.js"></script>
+
+	<!-- THEME SCRIPTS -->
+	<script src="js/flex.js"></script>
+	<script src="js/demo/dashboard-demo.js"></script>
+
+</h:body>
+</html>
