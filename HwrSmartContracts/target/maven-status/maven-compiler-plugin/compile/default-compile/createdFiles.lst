@@ -1,2 +1,5 @@
-beans\InputTextareaView.class
+cryptography\HashGeneratorUtils.class
 beans\FileUploadView.class
+cryptography\StringHashGeneratorExample.class
+cryptography\HashGenerationException.class
+beans\InputTextareaView.class
