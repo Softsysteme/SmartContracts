@@ -1,5 +1,7 @@
 cryptography\HashGeneratorUtils.class
 beans\FileUploadView.class
-cryptography\StringHashGeneratorExample.class
 cryptography\HashGenerationException.class
+com\hrw\jaxrs\HelloWorldService.class
+cryptography\StringHashGeneratorExample.class
+com\hrw\jaxrs\ExampleApplication.class
 beans\InputTextareaView.class
