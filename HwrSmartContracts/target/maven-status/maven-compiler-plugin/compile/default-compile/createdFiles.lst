@@ -1,7 +1,12 @@
-cryptography\HashGeneratorUtils.class
+nodepojos\Checkpoints.class
+service\ClientGetService.class
+nodepojos\P2p.class
 beans\FileUploadView.class
 cryptography\HashGenerationException.class
 com\hrw\jaxrs\HelloWorldService.class
+jsonservices\JSONService.class
+nodepojos\NodePojo.class
 cryptography\StringHashGeneratorExample.class
 com\hrw\jaxrs\ExampleApplication.class
 beans\InputTextareaView.class
+nodepojos\Product.class
