@@ -1,4 +1,4 @@
-package nodepojos;
+package pojos;
 /**
  * 
  * @author mpouma

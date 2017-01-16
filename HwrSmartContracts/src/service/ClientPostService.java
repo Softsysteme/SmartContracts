@@ -11,7 +11,12 @@ import org.jboss.resteasy.client.ClientResponse;
 
 public class ClientPostService {
 
-
+	// NodeURL
+	private String URL;
+	private ClientRequest request;
+	public ClientPostService(String url){
+		this.setURL(url);
+	}
 
 	public static void main(String[] args) {
 
@@ -52,6 +57,14 @@ public class ClientPostService {
 
 		}
 
+	}
+
+	public String getURL() {
+		return URL;
+	}
+
+	public void setURL(String uRL) {
+		URL = uRL;
 	}
 
 }

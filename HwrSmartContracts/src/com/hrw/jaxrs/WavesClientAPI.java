@@ -9,13 +9,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import pojos.Asset;
+import pojos.Transaction;
+
 /**
  * 
  * @author mpouma
  *
  */
 
-public interface WavesNodeConnection {
+public interface WavesClientAPI {
 
 	
 	// ceate the Asset for the smart contract Waves-Nodes API-key must be provided!
@@ -24,7 +27,7 @@ public interface WavesNodeConnection {
 @Path("/assets/issue")
 @Produces({ "application/json" })
 @Consumes({ "application/json" })
-public String createAsset(Object e);
+public void createAsset(Asset asset);
 
 
 //issue Asset into the blockchain
@@ -32,7 +35,7 @@ public String createAsset(Object e);
 @Path("/assets/broadcast/issue")
 @Consumes({ "application/json" })
 @Produces({ "application/json" })
-public String issueAsset();
+public void issueAsset(Asset asset);
 
 
 //asset transfert from an account to an another
@@ -40,14 +43,21 @@ public String issueAsset();
 @Path("/assets/broadcast/transfer")
 @Produces({ "application/json" })
 @Consumes({ "application/json" })
-public void sendAsset();
+public void sendAsset(Transaction transac);
 	
 
 //get  the Assetsbalance
 @GET
 @Path("/assets/balance/{address}/{id}")
-@Consumes
+@Consumes({ "application/json" })
 public BigInteger getAssetBalance(@PathParam("address")String address, @PathParam("id")String id);
+
+
+//get the waves balance of "address"
+@GET
+@Path("/addresses/balance/{address}")
+@Consumes({ "application/json" })
+public BigInteger getWavesBalance(@PathParam("address")String address);
 
 
 public void test();

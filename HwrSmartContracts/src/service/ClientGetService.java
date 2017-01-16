@@ -10,7 +10,7 @@ import org.jboss.resteasy.client.ClientResponse;
 
 public class ClientGetService {
 
-	public static void main(String[] args) {
+	public void createConnection(){
 	  try {
 
 		ClientRequest request = new ClientRequest(
@@ -46,6 +46,4 @@ public class ClientGetService {
 
 	  }
 
-	}
-
-}
+	}}

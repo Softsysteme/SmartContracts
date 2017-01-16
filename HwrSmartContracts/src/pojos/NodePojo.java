@@ -1,4 +1,7 @@
-package nodepojos;
+package pojos;
+
+import java.math.BigInteger;
+
 /**
  * 
  * @author mpouma
@@ -6,12 +9,12 @@ package nodepojos;
  */
 
 public class NodePojo {
-	
+
 	private Checkpoints checkpoints;
 
-	private String blockGenerationDelay;
+	private BigInteger blockGenerationDelay;
 
-	private String rpcEnabled;
+	private boolean rpcEnabled;
 
 	private String loggingLevel;
 
@@ -21,13 +24,13 @@ public class NodePojo {
 
 	private String rpcPort;
 
-	private String historySynchronizerTimeout;
+	private BigInteger historySynchronizerTimeout;
 
 	private String dataDir;
 
-	private String cors;
+	private boolean cors;
 
-	private String offlineGeneration;
+	private boolean offlineGeneration;
 
 	private P2p p2p;
 
@@ -37,11 +40,11 @@ public class NodePojo {
 
 	private String apiKeyHash;
 
-	private String testnet;
+	private boolean testnet;
 
 	private String walletDir;
 
-	private String maxRollback;
+	private int maxRollback;
 
 	private String genesisSignature;
 
@@ -53,19 +56,19 @@ public class NodePojo {
 		this.checkpoints = checkpoints;
 	}
 
-	public String getBlockGenerationDelay() {
+	public BigInteger getBlockGenerationDelay() {
 		return blockGenerationDelay;
 	}
 
-	public void setBlockGenerationDelay(String blockGenerationDelay) {
+	public void setBlockGenerationDelay(BigInteger blockGenerationDelay) {
 		this.blockGenerationDelay = blockGenerationDelay;
 	}
 
-	public String getRpcEnabled() {
+	public boolean getRpcEnabled() {
 		return rpcEnabled;
 	}
 
-	public void setRpcEnabled(String rpcEnabled) {
+	public void setRpcEnabled(boolean rpcEnabled) {
 		this.rpcEnabled = rpcEnabled;
 	}
 
@@ -101,11 +104,11 @@ public class NodePojo {
 		this.rpcPort = rpcPort;
 	}
 
-	public String getHistorySynchronizerTimeout() {
+	public BigInteger getHistorySynchronizerTimeout() {
 		return historySynchronizerTimeout;
 	}
 
-	public void setHistorySynchronizerTimeout(String historySynchronizerTimeout) {
+	public void setHistorySynchronizerTimeout(BigInteger historySynchronizerTimeout) {
 		this.historySynchronizerTimeout = historySynchronizerTimeout;
 	}
 
@@ -117,19 +120,19 @@ public class NodePojo {
 		this.dataDir = dataDir;
 	}
 
-	public String getCors() {
+	public boolean getCors() {
 		return cors;
 	}
 
-	public void setCors(String cors) {
+	public void setCors(boolean cors) {
 		this.cors = cors;
 	}
 
-	public String getOfflineGeneration() {
+	public boolean getOfflineGeneration() {
 		return offlineGeneration;
 	}
 
-	public void setOfflineGeneration(String offlineGeneration) {
+	public void setOfflineGeneration(boolean offlineGeneration) {
 		this.offlineGeneration = offlineGeneration;
 	}
 
@@ -165,11 +168,11 @@ public class NodePojo {
 		this.apiKeyHash = apiKeyHash;
 	}
 
-	public String getTestnet() {
+	public boolean getTestnet() {
 		return testnet;
 	}
 
-	public void setTestnet(String testnet) {
+	public void setTestnet(boolean testnet) {
 		this.testnet = testnet;
 	}
 
@@ -181,11 +184,11 @@ public class NodePojo {
 		this.walletDir = walletDir;
 	}
 
-	public String getMaxRollback() {
+	public int getMaxRollback() {
 		return maxRollback;
 	}
 
-	public void setMaxRollback(String maxRollback) {
+	public void setMaxRollback(int maxRollback) {
 		this.maxRollback = maxRollback;
 	}
 

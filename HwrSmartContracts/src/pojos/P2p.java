@@ -1,4 +1,7 @@
-package nodepojos;
+package pojos;
+
+import java.math.BigInteger;
+
 /**
  * 
  * @author mpouma
@@ -6,13 +9,13 @@ package nodepojos;
  */
 
 public class P2p {
-	private String port;
+	private int port;
 
-	private String maxConnections;
+	private int maxConnections;
 
 	private String[] knownPeers;
 
-	private String upnpGatewayTimeout;
+	private BigInteger upnpGatewayTimeout;
 
 	private String myAddress;
 
@@ -20,23 +23,23 @@ public class P2p {
 
 	private String nodeName;
 
-	private String upnp;
+	private boolean upnp;
 
-	private String upnpDiscoverTimeout;
+	private BigInteger upnpDiscoverTimeout;
 
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
 
-	public void setPort(String port) {
+	public void setPort(int port) {
 		this.port = port;
 	}
 
-	public String getMaxConnections() {
+	public int getMaxConnections() {
 		return maxConnections;
 	}
 
-	public void setMaxConnections(String maxConnections) {
+	public void setMaxConnections(int maxConnections) {
 		this.maxConnections = maxConnections;
 	}
 
@@ -48,11 +51,11 @@ public class P2p {
 		this.knownPeers = knownPeers;
 	}
 
-	public String getUpnpGatewayTimeout() {
+	public BigInteger getUpnpGatewayTimeout() {
 		return upnpGatewayTimeout;
 	}
 
-	public void setUpnpGatewayTimeout(String upnpGatewayTimeout) {
+	public void setUpnpGatewayTimeout(BigInteger upnpGatewayTimeout) {
 		this.upnpGatewayTimeout = upnpGatewayTimeout;
 	}
 
@@ -80,19 +83,19 @@ public class P2p {
 		this.nodeName = nodeName;
 	}
 
-	public String getUpnp() {
+	public boolean getUpnp() {
 		return upnp;
 	}
 
-	public void setUpnp(String upnp) {
+	public void setUpnp(boolean upnp) {
 		this.upnp = upnp;
 	}
 
-	public String getUpnpDiscoverTimeout() {
+	public BigInteger getUpnpDiscoverTimeout() {
 		return upnpDiscoverTimeout;
 	}
 
-	public void setUpnpDiscoverTimeout(String upnpDiscoverTimeout) {
+	public void setUpnpDiscoverTimeout(BigInteger upnpDiscoverTimeout) {
 		this.upnpDiscoverTimeout = upnpDiscoverTimeout;
 	}
 
