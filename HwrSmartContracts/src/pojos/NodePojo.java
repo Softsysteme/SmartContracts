@@ -47,6 +47,7 @@ public class NodePojo {
 	private int maxRollback;
 
 	private String genesisSignature;
+	private String[] rpcAllowed;
 
 	public Checkpoints getCheckpoints() {
 		return checkpoints;
@@ -209,5 +210,13 @@ public class NodePojo {
 				+ offlineGeneration + ", p2p = " + p2p + ", rpcAddress = " + rpcAddress + ", history = " + history
 				+ ", apiKeyHash = " + apiKeyHash + ", testnet = " + testnet + ", walletDir = " + walletDir
 				+ ", maxRollback = " + maxRollback + ", genesisSignature = " + genesisSignature + "]";
+	}
+
+	public String[] getRpcAllowed() {
+		return rpcAllowed;
+	}
+
+	public void setRpcAllowed(String[] rpcAllowed) {
+		this.rpcAllowed = rpcAllowed;
 	}
 }

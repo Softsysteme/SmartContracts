@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 
 import pojos.Asset;
 import pojos.Transaction;
+import pojos.TransactionBroadcast;
 
 /**
  * 
@@ -43,8 +44,18 @@ public void issueAsset(Asset asset);
 @Path("/assets/broadcast/transfer")
 @Produces({ "application/json" })
 @Consumes({ "application/json" })
-public void sendAsset(Transaction transac);
+public void sendAsset(TransactionBroadcast transac);
 	
+
+
+
+//asset transfert from an account to an another
+@POST
+@Path("/assets/transfer")
+@Produces({ "application/json" })
+@Consumes({ "application/json" })
+public void sendAsset(Transaction transac);
+
 
 //get  the Assetsbalance
 @GET

@@ -1,7 +1,8 @@
 package pojos;
 
 import java.math.BigInteger;
-import java.security.Timestamp;
+import java.sql.Timestamp;
+
 
 /**
  * 
@@ -23,7 +24,7 @@ import java.security.Timestamp;
  */
 public class Asset {
 	private Timestamp timestamp;
-
+    private String assetId;
 	private BigInteger fee;
 
 	private int decimals;
@@ -130,5 +131,13 @@ public class Asset {
 				+ sender + ", description = " + description + ", name = " + name + ", quantity = " + quantity
 				+ ", senderPublicKey = " + senderPublicKey + ", reissuable = " + reissuable + ", signature = "
 				+ signature + "]";
+	}
+
+	public String getAssetId() {
+		return assetId;
+	}
+
+	public void setAssetId(String assetId) {
+		this.assetId = assetId;
 	}
 }

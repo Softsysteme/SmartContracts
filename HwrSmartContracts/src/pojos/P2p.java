@@ -26,6 +26,7 @@ public class P2p {
 	private boolean upnp;
 
 	private BigInteger upnpDiscoverTimeout;
+	private boolean testnet;
 
 	public int getPort() {
 		return port;
@@ -105,6 +106,14 @@ public class P2p {
 				+ ", upnpGatewayTimeout = " + upnpGatewayTimeout + ", myAddress = " + myAddress + ", bindAddress = "
 				+ bindAddress + ", nodeName = " + nodeName + ", upnp = " + upnp + ", upnpDiscoverTimeout = "
 				+ upnpDiscoverTimeout + "]";
+	}
+
+	public boolean isTestnet() {
+		return testnet;
+	}
+
+	public void setTestnet(boolean testnet) {
+		this.testnet = testnet;
 	}
 
 }
