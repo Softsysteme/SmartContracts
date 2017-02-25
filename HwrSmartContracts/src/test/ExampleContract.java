@@ -36,16 +36,16 @@ public class ExampleContract extends AbstractContract {
 		int result = (int) (Math.random() * 2 + 1);
 		if (result == this.getMychoice()) {
 
-			if (getAssetBalance(partnerAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
+			if (getAssetBalance(partnerAdresse, getAsset().getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
 				System.out.println("the user with Address:" + partnerAdresse + " " + "does not have enough money");
 
 			}
 
-			if (getAssetBalance(contractAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
+			if (getAssetBalance(contractAdresse, getAsset().getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
 				System.out.println("the user with Address:" + contractAdresse + " " + "does not have enough money");
 			}
 
-			if ((getAssetBalance(contractAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) >= 0)
+			if ((getAssetBalance(contractAdresse,getAsset().getAssetId()).compareTo(BigInteger.valueOf((long) preis)) >= 0)
 					&& (getAssetBalance(partnerAdresse, asset.getAssetId())
 							.compareTo(BigInteger.valueOf((long) preis)) >= 0))
 

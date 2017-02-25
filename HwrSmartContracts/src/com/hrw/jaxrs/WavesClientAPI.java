@@ -24,7 +24,7 @@ public interface WavesClientAPI {
 	// ceate the Asset for the smart contract Waves-Nodes API-key must be
 	// provided!
 
-	public void createAsset(Asset asset);
+	public void createAndIssueAsset(Asset asset);
 
 	// issue Asset into the blockchain
 
@@ -47,6 +47,6 @@ public interface WavesClientAPI {
 
 	public String createContractAccount();
 
-	public void test();
+	
 
 }

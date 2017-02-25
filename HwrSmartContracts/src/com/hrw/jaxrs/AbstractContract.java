@@ -34,10 +34,9 @@ public class AbstractContract implements WavesClientAPI {
 	 
 	 */
 	protected NodePojo Node;
-	protected String status;
+	protected String status="not born";;
 	protected Asset asset;
 	protected String contractAdresse;
-	// protected String partnerAdresse;
 	// the contract's type
 	protected int type = 0;
 	protected String url;
@@ -55,7 +54,6 @@ public class AbstractContract implements WavesClientAPI {
 	public AbstractContract(File JsonNode, boolean createasset) {
 		this.createasset = createasset;
 		this.status = "blocked";
-		// this.setPartnerAdresse(partner);
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
@@ -64,10 +62,8 @@ public class AbstractContract implements WavesClientAPI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.url = "http://"+Node.getRpcAddress()+":"+Node.getRpcPort();
+		this.url = "http://" + Node.getRpcAddress() + ":" + Node.getRpcPort();
 		this.setContractAdresse(createContractAccount());
-
-		
 
 		if (this.createasset == false) {
 			setType(2); // payment with waves
@@ -75,12 +71,12 @@ public class AbstractContract implements WavesClientAPI {
 		}
 
 		else {
-			createAsset(assetCreationDialog());
+			createAndIssueAsset(assetCreationDialog());
 		}
 
 	}
 
-	public AbstractContract(String JsonNode, String assetID) {
+	public AbstractContract(File JsonNode, String assetID) {
 		this.status = "blocked";
 		this.setType(1);
 		// this.setPartnerAdresse(partner);
@@ -93,18 +89,18 @@ public class AbstractContract implements WavesClientAPI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		this.url = "http://" + Node.getRpcAddress() + ":" + Node.getRpcPort();
 		this.setContractAdresse(createContractAccount());
-		this.url = "http://"+Node.getRpcAddress() + ":" + Node.getRpcPort();
+
 	}
 
 	@Override
-	public void createAsset(Asset asset) {
+	public void createAndIssueAsset(Asset asset) {
 		try {
 
 			ObjectMapper mapper = new ObjectMapper();
 			String assetInString = null;
-			URL uri = new URL(url+"/assets/issue");
+			URL uri = new URL(url + "/assets/broadcast/issue");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
@@ -115,7 +111,7 @@ public class AbstractContract implements WavesClientAPI {
 			os.write(assetInString.getBytes());
 			os.flush();
 
-			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED && conn.getResponseCode()!=308) {
+			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED && conn.getResponseCode() != 308) {
 				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
 			}
 
@@ -144,7 +140,7 @@ public class AbstractContract implements WavesClientAPI {
 
 			ObjectMapper mapper = new ObjectMapper();
 			String assetInString = null;
-			URL uri = new URL(url+"/assets/broadcast/issue");
+			URL uri = new URL(url + "/assets/broadcast/issue");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
@@ -198,7 +194,7 @@ public class AbstractContract implements WavesClientAPI {
 
 		try {
 
-			URL uri = new URL(url+"/assets/broadcast/transfer");
+			URL uri = new URL(url + "/assets/broadcast/transfer");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
@@ -231,7 +227,7 @@ public class AbstractContract implements WavesClientAPI {
 	public BigInteger getAssetBalance(@PathParam("address") String address, @PathParam("id") String id) {
 
 		try {
-			URL uri = new URL(url+"/assets/balance/{address}/{id}");
+			URL uri = new URL(url + "/assets/balance/{address}/{id}");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -281,19 +277,6 @@ public class AbstractContract implements WavesClientAPI {
 
 	}
 
-	@Override
-	public void test() {
-		// TODO Auto-generated method stub
-
-	}
-
-	// public String getPartnerAdresse() {
-	// return partnerAdresse;
-	// }
-
-	// public void setPartnerAdresse(String partnerAdresse) {
-	// this.partnerAdresse = partnerAdresse;
-	// }
 
 	public String getSenderAdresse() {
 		return contractAdresse;
@@ -324,7 +307,7 @@ public class AbstractContract implements WavesClientAPI {
 		String output = null;
 
 		try {
-			URL uri = new URL(url+"/assets/balance/{address}");
+			URL uri = new URL(url + "/assets/balance/{address}");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -400,7 +383,7 @@ public class AbstractContract implements WavesClientAPI {
 		}
 		try {
 
-			URL uri = new URL(url+"/assets/broadcast/transfert");
+			URL uri = new URL(url + "/assets/broadcast/transfert");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
@@ -443,19 +426,20 @@ public class AbstractContract implements WavesClientAPI {
 
 		try {
 
-			URL uri = new URL(url+"/addresses");
+			URL uri = new URL(url + "/addresses");
 			HttpURLConnection conn = (HttpURLConnection) uri.openConnection();
 			conn.setDoOutput(true);
 			conn.setRequestMethod("POST");
 			conn.setRequestProperty("Content-Type", "application/json");
-			conn.setRequestProperty("api_key", "thierry88");
+			System.out.println("please provide your api key");
+			Scanner sc = new Scanner(System.in);
+
+			conn.setRequestProperty("api_key", sc.next());
 
 			OutputStream os = conn.getOutputStream();
-//			String header="{\"API-Key\":thierry88}";
-//			os.write(header.getBytes());
 			os.flush();
 
-			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED && conn.getResponseCode()!=200) {
+			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED && conn.getResponseCode() != 200) {
 				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
 			}
 
@@ -477,8 +461,7 @@ public class AbstractContract implements WavesClientAPI {
 	public Asset assetCreationDialog() {
 		setType(1); // asset muss be created
 		asset = new Asset();
-		System.out
-				.println("creation of a new asset for the contract please follow the instructions below carefully...");
+		System.out.println("creation of a new asset for the contract please follow the instructions below carefully...");
 		System.out.println("some asset properties are set automatically...");
 		asset.setSender(contractAdresse);
 		asset.setSenderPublicKey(Node.getApiKeyHash());
@@ -500,4 +483,6 @@ public class AbstractContract implements WavesClientAPI {
 		return asset;
 	}
 
+	
+	
 }
