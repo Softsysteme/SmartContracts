@@ -13,11 +13,13 @@ public class ExampleContract extends AbstractContract {
 	private int mychoice;
 	private int opponentschoice;
 	private double preis;
+	private String partnerAdresse;
 
 	public ExampleContract(File JsonNode, String partner, boolean createasset, double Preis) {
 
-		super(JsonNode, partner, createasset);
+		super(JsonNode, createasset);
 		this.preis = Preis;
+		this.partnerAdresse=partner;
 	}
 
 	public void wetten() {
@@ -39,21 +41,21 @@ public class ExampleContract extends AbstractContract {
 
 			}
 
-			if (getAssetBalance(senderAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
-				System.out.println("the user with Address:" + senderAdresse + " " + "does not have enough money");
+			if (getAssetBalance(contractAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) == -1) {
+				System.out.println("the user with Address:" + contractAdresse + " " + "does not have enough money");
 			}
 
-			if ((getAssetBalance(senderAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) >= 0)
+			if ((getAssetBalance(contractAdresse, asset.getAssetId()).compareTo(BigInteger.valueOf((long) preis)) >= 0)
 					&& (getAssetBalance(partnerAdresse, asset.getAssetId())
 							.compareTo(BigInteger.valueOf((long) preis)) >= 0))
 
 				if (getMychoice() < getOpponentschoice()) {
-					this.sendAsset(new Transaction(senderAdresse, partnerAdresse, BigInteger.valueOf((long) preis),
-							BigInteger.valueOf((long) preis), "wegen die das Wetten"));
+					this.sendAsset(new Transaction(contractAdresse, partnerAdresse, BigInteger.valueOf((long) preis),
+							BigInteger.valueOf((long) preis), "wegen dem Wetten"));
 				}
 
 			if (getMychoice() > getOpponentschoice()) {
-				this.sendAsset(new Transaction(partnerAdresse, senderAdresse, BigInteger.valueOf((long) preis),
+				this.sendAsset(new Transaction(partnerAdresse, contractAdresse, BigInteger.valueOf((long) preis),
 						BigInteger.valueOf((long) preis), "wegen die das Wetten"));
 			}
 
