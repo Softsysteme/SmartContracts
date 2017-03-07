@@ -1,5 +1,6 @@
 package com.hrw.jaxrs;
 
+import java.io.File;
 import java.math.BigInteger;
 
 import javax.ws.rs.Consumes;
@@ -21,12 +22,7 @@ import pojos.TransactionBroadcast;
 
 public interface WavesClientAPI {
 
-	// ceate the Asset for the smart contract Waves-Nodes API-key must be
-	// provided!
-
-	public void createAndIssueAsset(Asset asset);
-
-	// issue Asset into the blockchain
+	// issue Asset into the blockchain api-key muss be provided
 
 	public void issueAsset(Asset asset);
 
@@ -35,7 +31,10 @@ public interface WavesClientAPI {
 	public void sendAsset(TransactionBroadcast transac);
 
 	// asset transfert from an account to an another
-	public void sendAsset(Transaction transac);
+	public void sendAsset(String assetId, String recipient, BigInteger amount, File attachment);
+
+	// asset transfert without attachement
+	public void sendAsset(String assetId, String recipient, BigInteger amount);
 
 	// get the Assetsbalance
 
@@ -46,7 +45,10 @@ public interface WavesClientAPI {
 	public BigInteger getWavesBalance(@PathParam("address") String address);
 
 	public String createContractAccount();
-
+	
+	//contract logik
+	public void doContractsOperations();
+		
 	
 
 }

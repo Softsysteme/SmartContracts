@@ -1,6 +1,8 @@
 package pojos;
 
+import java.io.File;
 import java.math.BigInteger;
+import java.sql.Timestamp;
 
 /**
  * 
@@ -18,7 +20,7 @@ import java.math.BigInteger;
  *         data, Base58-encoded
  */
 public class TransactionBroadcast extends Transaction {
-	private BigInteger timestamp;
+	private Timestamp timestamp;
 
 	private BigInteger amount;
 
@@ -26,7 +28,7 @@ public class TransactionBroadcast extends Transaction {
 
 	private String assetId;
 
-	private String attachment;
+	private File attachment;
 
 	private String senderPublicKey;
 
@@ -35,21 +37,21 @@ public class TransactionBroadcast extends Transaction {
 	private String recipient;
 
 	public TransactionBroadcast(String senderPublicKey, String signature, String assetId, String recipient,
-			BigInteger amount, BigInteger fee, BigInteger timestamp, String attachment) {
-		super(assetId, recipient, amount, fee, attachment);
+			BigInteger amount, File attachment) {
+		super(assetId, recipient, amount,  attachment);
 
 		this.senderPublicKey = senderPublicKey;
 		this.signature = signature;
-		this.timestamp = timestamp;
+		this.timestamp = new Timestamp(System.currentTimeMillis());
 	}
 
 	
 
-	public BigInteger getTimestamp() {
+	public Timestamp getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(BigInteger timestamp) {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
 
@@ -77,11 +79,11 @@ public class TransactionBroadcast extends Transaction {
 		this.assetId = assetId;
 	}
 
-	public String getAttachment() {
+	public File getAttachment() {
 		return attachment;
 	}
 
-	public void setAttachment(String attachment) {
+	public void setAttachment(File attachment) {
 		this.attachment = attachment;
 	}
 

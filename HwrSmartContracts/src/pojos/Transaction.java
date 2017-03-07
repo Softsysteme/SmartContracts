@@ -1,5 +1,6 @@
 package pojos;
 
+import java.io.File;
 import java.math.BigInteger;
 
 /**
@@ -25,16 +26,24 @@ public class Transaction {
 
 	private String assetId;
 
-	private String attachment;
+	private File attachment;
 
 	private String recipient;
 
-	public Transaction(String assetId, String recipient, BigInteger amount, BigInteger fee, String attachment) {
+	public Transaction(String assetId, String recipient, BigInteger amount, File attachment) {
 
 		this.amount = amount;
 		this.assetId = assetId;
 		this.attachment = attachment;
-		this.fee = fee;
+		this.fee =amount.multiply((BigInteger.valueOf((long) 0.1))) ;
+
+	}
+	
+	public Transaction(String assetId, String recipient, BigInteger amount) {
+
+		this.amount = amount;
+		this.assetId = assetId;
+		this.fee =amount.multiply((BigInteger.valueOf((long) 0.1))) ;
 
 	}
 
@@ -62,11 +71,11 @@ public class Transaction {
 		this.assetId = assetId;
 	}
 
-	public String getAttachment() {
+	public File getAttachment() {
 		return attachment;
 	}
 
-	public void setAttachment(String attachment) {
+	public void setAttachment(File attachment) {
 		this.attachment = attachment;
 	}
 

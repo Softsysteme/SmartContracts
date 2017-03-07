@@ -43,9 +43,10 @@ public class Asset {
 
 	private String signature;
 	
-	
+   
 
 	public Timestamp getTimestamp() {
+		
 		return timestamp;
 	}
 
