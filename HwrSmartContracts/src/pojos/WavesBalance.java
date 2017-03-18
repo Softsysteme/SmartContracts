@@ -2,49 +2,46 @@ package pojos;
 
 import java.math.BigInteger;
 
-public class WavesBalance
-{
-    private BigInteger balance;
+/**
+ * 
+ * @author mpouma
+ *
+ */
 
-    private int confirmations;
+public class WavesBalance {
+	private BigInteger balance;
 
-    private String address;
+	private int confirmations;
 
-    public BigInteger getBalance ()
-    {
-        return balance;
-    }
+	private String address;
 
-    public void setBalance (BigInteger balance)
-    {
-        this.balance = balance;
-    }
+	public BigInteger getBalance() {
+		return balance;
+	}
 
-    public int getConfirmations ()
-    {
-        return confirmations;
-    }
+	public void setBalance(BigInteger balance) {
+		this.balance = balance;
+	}
 
-	public void setConfirmations(int confirmations)
-    {
-        this.confirmations = confirmations;
-    }
+	public int getConfirmations() {
+		return confirmations;
+	}
 
-    public String getAddress ()
-    {
-        return address;
-    }
+	public void setConfirmations(int confirmations) {
+		this.confirmations = confirmations;
+	}
 
-    public void setAddress (String address)
-    {
-        this.address = address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [balance = "+balance+", confirmations = "+confirmations+", address = "+address+"]";
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassPojo [balance = " + balance + ", confirmations = " + confirmations + ", address = " + address
+				+ "]";
+	}
 }
-			
-	

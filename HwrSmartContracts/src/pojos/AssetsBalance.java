@@ -2,6 +2,11 @@ package pojos;
 
 import java.math.BigInteger;
 
+/**
+ * 
+ * @author mpouma
+ *
+ */
 public class AssetsBalance {
 	private BigInteger balance;
 

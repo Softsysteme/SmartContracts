@@ -1,7 +1,10 @@
 package pojos;
 
-import java.io.File;
 import java.math.BigInteger;
+import java.sql.Timestamp;
+
+import cryptography.HashGenerationException;
+import cryptography.HashGeneratorUtils;
 
 /**
  * 
@@ -9,16 +12,19 @@ import java.math.BigInteger;
  *
  *
  *         "assetId" [optional] - Asset ID to transfer or omit that param when
- *         transfer WAVES, Base58-encoded " Base58-encoded "recipient" - Recipient account's address,
- *         Base58-encoded "feeAmount" - Transaction fee for Asset transfer, min
- *         = 100000 (WAVElets) "amount" - amount of asset'lets (or wavelets) to
- *         transfer "attachment" - Arbitrary additional data included in
- *         transaction, max length is 140 bytes
- *        
- *     
+ *         transfer WAVES, Base58-encoded "senderPublicKey" - Sender account's
+ *         public key, Base58-encoded "recipient" - Recipient account's address,
+ *         Base58-encoded "fee" - Transaction fee for Asset transfer, min =
+ *         100000 (WAVElets) "feeAssetId" [optional] - Asset ID of transaction
+ *         fee. WAVES by default, if empty or absent "amount" - amount of
+ *         asset'lets (or wavelets) to transfer "attachment" - Arbitrary
+ *         additional data included in transaction, max length is 140 bytes,
+ *         Base58-encoded "timestamp" - Transaction timestamp "signature" -
+ *         Signature of all transaction data, Base58-encoded
  */
-
 public class Transaction {
+
+	private Timestamp timestamp;
 
 	private BigInteger amount;
 
@@ -26,25 +32,91 @@ public class Transaction {
 
 	private String assetId;
 
-	private File attachment;
+	private String attachment;
+
+	private String senderPublicKey;
+
+	private String signature;
 
 	private String recipient;
 
-	public Transaction(String assetId, String recipient, BigInteger amount, File attachment) {
+	private String feeAssetId;
+
+	// payement wiht asset
+	public Transaction(String assetId, String recipient, BigInteger amount, String feeAssetID,
+			String senderPublicKey) {
 
 		this.amount = amount;
+		this.timestamp = new Timestamp(System.currentTimeMillis());
 		this.assetId = assetId;
-		this.attachment = attachment;
-		this.fee =amount.multiply((BigInteger.valueOf((long) 0.1))) ;
-
+		this.feeAssetId = feeAssetID;
+		this.attachment = "Smart-contract-transaction";
+		this.recipient = recipient;
+		this.senderPublicKey = senderPublicKey;
+		this.fee = amount.multiply((BigInteger.valueOf((long) 0.05)));
+		try {
+			this.signature = HashGeneratorUtils.generateSHA256(toString());
+		} catch (HashGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
-	public Transaction(String assetId, String recipient, BigInteger amount) {
+
+	public Transaction(String assetId, String recipient, BigInteger amount, String senderPublicKey) {
 
 		this.amount = amount;
+		this.timestamp = new Timestamp(System.currentTimeMillis());
 		this.assetId = assetId;
-		this.fee =amount.multiply((BigInteger.valueOf((long) 0.1))) ;
+		this.attachment = "Smart-contract-transaction";
+		this.recipient = recipient;
+		this.senderPublicKey = senderPublicKey;
+		this.fee = amount.multiply((BigInteger.valueOf((long) 0.05)));
+		try {
+			this.signature = HashGeneratorUtils.generateSHA256(toString());
+		} catch (HashGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
+	public Transaction(String recipient, BigInteger amount, String senderPublicKey, String feeAssetID) {
+
+		this.amount = amount;
+		this.timestamp = new Timestamp(System.currentTimeMillis());
+		this.attachment = "Smart-contract-transaction-payment-with-Waves";
+		this.recipient = recipient;
+		this.senderPublicKey = senderPublicKey;
+		this.feeAssetId = feeAssetID;
+		this.fee = amount.multiply((BigInteger.valueOf((long) 0.05)));
+		try {
+			this.signature = HashGeneratorUtils.generateSHA256(toString());
+		} catch (HashGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public Transaction(String recipient, BigInteger amount, String senderPublicKey) {
+		this.amount = amount;
+		this.timestamp = new Timestamp(System.currentTimeMillis());
+		this.attachment = "Smart-contract-transaction-payment-with-Waves";
+		this.recipient = recipient;
+		this.senderPublicKey = senderPublicKey;
+		this.fee = amount.multiply((BigInteger.valueOf((long) 0.05)));
+		try {
+			this.signature = HashGeneratorUtils.generateSHA256(toString());
+		} catch (HashGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public BigInteger getAmount() {
@@ -71,12 +143,28 @@ public class Transaction {
 		this.assetId = assetId;
 	}
 
-	public File getAttachment() {
+	public String getAttachment() {
 		return attachment;
 	}
 
-	public void setAttachment(File attachment) {
+	public void setAttachment(String attachment) {
 		this.attachment = attachment;
+	}
+
+	public String getSenderPublicKey() {
+		return senderPublicKey;
+	}
+
+	public void setSenderPublicKey(String senderPublicKey) {
+		this.senderPublicKey = senderPublicKey;
+	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 
 	public String getRecipient() {
@@ -87,10 +175,18 @@ public class Transaction {
 		this.recipient = recipient;
 	}
 
+	public String getFeeAssetId() {
+		return feeAssetId;
+	}
+
+	public void setFeeAssetId(String feeAssetId) {
+		this.feeAssetId = feeAssetId;
+	}
+
 	@Override
 	public String toString() {
-		return "ClassPojo [timestamp = " + ", amount = " + amount + ", fee = " + fee + ", assetId = " + assetId
-				+ ", attachment = " + attachment + ", senderPublicKey = " + ", signature = " + ", recipient = "
-				+ recipient + "]";
+		return " [timestamp = " + timestamp + ", amount = " + amount + ", fee = " + fee + ", assetId = " + assetId
+				+ ", attachment = " + attachment + ", senderPublicKey = " + senderPublicKey + ", signature = "
+				+ signature + ", recipient = " + recipient + ", feeAssetId = " + feeAssetId + "]";
 	}
 }
